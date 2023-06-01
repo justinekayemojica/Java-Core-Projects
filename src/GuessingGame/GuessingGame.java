@@ -1,6 +1,6 @@
 /*
 * Guessing Game*
-* An umber guessing game where the computer generates a random number
+* A number guessing game where the computer generates a random number
 * and the player has to guess it. Provides feedback to the player indicating
 * whether their guess is too high or too low, and keep track of the number of
 * attempts until they guess the correct number.
