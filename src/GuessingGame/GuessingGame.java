@@ -43,6 +43,7 @@ public class GuessingGame {
             }
         } while (guess!=randomNumber);
 
+        input.close();
     }
 
     public static int randomNumberGenerator(){
