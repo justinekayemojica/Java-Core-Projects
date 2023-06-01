@@ -2,8 +2,8 @@
 *   Created by: JMOJICA 060123
 *
 *   Simple Calculator:
-*   Create a command-line calculator that can perform basic arithmetic operations
-*   such as addition, subtraction, multiplication, and division. The program should
+*   Command-line calculator that can perform basic arithmetic operations
+*   such as addition, subtraction, multiplication, and division. The program
 *   take user input for two numbers and the desired operation, and then display the
 *   result.
 *
