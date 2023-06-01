@@ -19,6 +19,7 @@ public class GuessingGame {
         int randomNumber = randomNumberGenerator();
         int attempts = 0;
         int guess = 0;
+
         Scanner input = new Scanner(System.in);
 
         System.out.println("\t\t\tGuessing Game");
@@ -28,18 +29,20 @@ public class GuessingGame {
             try{
                 System.out.print("Number (0-100): ");
                 guess = input.nextInt();
-                if(guess<0 || guess >100) throw new InputMismatchException();
+                attempts++;
+                if(guess<0 || guess >100) throw new IllegalArgumentException();
                 else if(guess>randomNumber) System.out.println("Your guess is too high");
                 else if(guess<randomNumber) System.out.println("Your guess is too low");
                 else if(guess==randomNumber) {
                     System.out.println("The number is " + randomNumber + ", You guessed the correct Number after "
                             + attempts + " attempt/s.");
                 }
-                attempts++;
+
             }catch(InputMismatchException exc){
                 System.out.println("Invalid Value, Please enter a number from 0 to 100");
                 input.next();
-                continue;
+            } catch (IllegalArgumentException e) {
+                System.out.println("Invalid Value, Please enter a number from 0 to 100");
             }
         } while (guess!=randomNumber);
 
