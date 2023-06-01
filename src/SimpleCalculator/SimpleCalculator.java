@@ -11,7 +11,6 @@
 
 package SimpleCalculator;
 
-import java.sql.SQLOutput;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -47,7 +46,7 @@ public class SimpleCalculator {
 
         } while(operation!=0);
 
-
+        input.close();
     }
 
     public static double addition(double num1, double num2){
