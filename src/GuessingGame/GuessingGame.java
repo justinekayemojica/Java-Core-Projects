@@ -42,7 +42,7 @@ public class GuessingGame {
                 System.out.println("Invalid Value, Please enter a number from 0 to 100");
                 input.next();
             } catch (IllegalArgumentException e) {
-                System.out.println("Invalid Value, Please enter a number from 0 to 100");
+                System.out.println("Invalid Value: "+ ", Please enter a number from 0 to 100");
             }
         } while (guess!=randomNumber);
 
