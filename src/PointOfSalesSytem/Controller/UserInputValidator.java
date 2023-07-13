@@ -13,6 +13,11 @@ public class UserInputValidator {
         this.input = input;
     }
 
+    public boolean validateReturntoMenu(){
+        input.nextLine();
+        return input.hasNextLine();
+    }
+
     public int validateMenuOption(){
         int menuOpt;
         try{
@@ -57,6 +62,27 @@ public class UserInputValidator {
             System.out.println(validationException.getMessage());
         } catch(InputMismatchException inputMismatchException){
             System.out.println("\nInvalid product quantity. Please input a valid number.\n");
+            input.nextLine();
+        }
+        return -1;
+    }
+
+    public int validateProductQuantitySoldInput(int productQuantity){
+        int productQuantitySold;
+        boolean isValidProductQtySold;
+        try{
+            productQuantitySold = input.nextInt();
+            System.out.println();
+            isValidProductQtySold = productQuantity - productQuantitySold >= 0;
+            if(productQuantitySold > 0  && isValidProductQtySold) return productQuantitySold;
+            else if(productQuantitySold < 0)ValidationException.throwInvalidProductQuantityException();
+            else if(productQuantity == 0) ValidationException.throwInvalidQuantitySoldException();
+            else if((productQuantity - productQuantitySold) < 0) ValidationException.throwInvalidQuantitySoldException(productQuantity);
+            else throw new InputMismatchException();
+        } catch(ValidationException validationException){
+            System.out.println(validationException.getMessage());
+        } catch(InputMismatchException inputMismatchException){
+            System.out.println("\nInvalid product quantity sold. Please input a valid number.\n");
             input.nextLine();
         }
         return -1;

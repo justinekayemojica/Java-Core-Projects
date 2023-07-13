@@ -17,8 +17,9 @@ public class POSApp {
         int menuOption = -1;
         AppView appView = new AppView();
         Scanner input = new Scanner(System.in);
-        ProductController productController;
         ProductView productView = new ProductView();
+
+        ProductController productController;
         UserInputValidator userInputValidator = new UserInputValidator(input);
 
 
@@ -42,23 +43,66 @@ public class POSApp {
                         productController = new ProductController(product, productView);
                         productController.displayProductDetails();
                     }
+                    appView.printReturnToMenuPrompt();
+                    if(userInputValidator.validateReturntoMenu()) menuOption = -1;
                 }
                 case 2->{
                     int productOpt;
                     int productQty;
                     appView.printIncreaseStockHeader();
-                    for(int i = 0 ; i< products.size() ; i++){
-                        productController = new ProductController(products.get(i), productView);
-                        System.out.print("[" + i + "] ");
-                        productController.displayProductName();
-                    }
-                    appView.printProductPrompt();
-                    productOpt = userInputValidator.validateProductOption(products.size());
-                    productController = new ProductController(products.get(productOpt), productView);
-                    appView.printProductQuantityPrompt();
-                    productQty = userInputValidator.validateProductQuantityInput();
-                    productController.addProductQuantity(productQty);
-                    menuOption = -1;
+
+                    do{
+                        for(int i = 0 ; i< products.size() ; i++){
+                            productController = new ProductController(products.get(i), productView);
+                            System.out.print("[" + i + "] ");
+                            productController.displayProductName();
+                        }
+                        appView.printProductPrompt();
+                        productOpt = userInputValidator.validateProductOption(products.size());
+                        if(productOpt!=-1){
+                            productController = new ProductController(products.get(productOpt), productView);
+                            do{
+                                appView.printProductQuantityPrompt();
+                                productQty = userInputValidator.validateProductQuantityInput();
+                                if(productQty!=-1){
+                                    productController.addProductQuantity(productQty);
+                                    appView.printIncreaseStockMsg(productController.getProductName(),productController.getProductQuantity());
+                                }
+                            }while(productQty == -1);
+                        }
+                    } while(productOpt == -1);
+                    appView.printReturnToMenuPrompt();
+                    if(userInputValidator.validateReturntoMenu()) menuOption = -1;
+
+                }
+
+                case 3 ->{
+                    int productOpt;
+                    int productQtySold;
+                    appView.printEnterSalesTransactionHeader();
+
+                    do{
+                        for(int i = 0 ; i< products.size() ; i++){
+                            productController = new ProductController(products.get(i), productView);
+                            System.out.print("[" + i + "] ");
+                            productController.displayProductName();
+                        }
+                        appView.printProductPrompt();
+                        productOpt = userInputValidator.validateProductOption(products.size());
+                        if(productOpt != -1){
+                            productController = new ProductController(products.get(productOpt), productView);
+                            do{
+                                appView.printProductQuantitySoldPrompt();
+                                productQtySold = userInputValidator.validateProductQuantitySoldInput(productController.getProductQuantity());
+                                if(productQtySold!=-1){
+                                    productController.enterProductSalesTrans(productQtySold);
+                                    appView.printEnterSalesTransactionMsg(productController.getProductName(), productController.getProductQuantitySold());
+                                }
+                            }while(productQtySold == -1);
+                        }
+                    }while(productOpt == -1);
+                    appView.printReturnToMenuPrompt();
+                    if(userInputValidator.validateReturntoMenu()) menuOption = -1;
 
                 }
                 case 4 -> {
@@ -67,6 +111,8 @@ public class POSApp {
                         productController = new ProductController(product, productView);
                         productController.displayProductSalesTrans();
                     }
+                    appView.printReturnToMenuPrompt();
+                    if(userInputValidator.validateReturntoMenu()) menuOption = -1;
                 }
                 case 0 ->{
                     appView.printClosingAppHeader();
@@ -75,10 +121,5 @@ public class POSApp {
                 }
             }
         }
-
-
-
-
-
     }
 }

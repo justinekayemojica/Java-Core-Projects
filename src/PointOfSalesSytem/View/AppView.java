@@ -27,12 +27,20 @@ public class AppView {
         System.out.print("Select menu option: ");
     }
 
+    public void printReturnToMenuPrompt(){
+        System.out.print("\nPress enter to return to menu.");
+    }
+
     public void printProductPrompt(){
         System.out.print("Select product option: ");
     }
 
     public void printProductQuantityPrompt(){
         System.out.print("Input product quantity: ");
+    }
+
+    public void printProductQuantitySoldPrompt(){
+        System.out.print("Input sold product quantity: ");
     }
 
     public void printDisplayInventoryHeader(){
@@ -44,6 +52,18 @@ public class AppView {
     public void printIncreaseStockHeader(){
         printLineSep();
         System.out.printf("%48s%n", "Increase Product Quantity");
+    }
+    public void printIncreaseStockMsg(String productName, int productQuantity){
+        System.out.printf("Product %s has been updated, current product quantity is %d" , productName , productQuantity);
+    }
+
+    public void printEnterSalesTransactionHeader(){
+        printLineSep();
+        System.out.printf("%47s%n", "Product Sales Transaction");
+    }
+
+    public void printEnterSalesTransactionMsg(String productName, int productQuantitySold){
+        System.out.printf("Product %s has been updated, current product quantity sold is %d" , productName , productQuantitySold);
     }
 
     public void printSalesTransactionHeader(){

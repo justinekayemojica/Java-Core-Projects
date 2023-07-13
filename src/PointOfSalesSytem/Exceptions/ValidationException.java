@@ -26,4 +26,8 @@ public class ValidationException extends RuntimeException {
         throw new ValidationException("Sales transactions cannot be allowed for products that are sold out\n");
     }
 
+    public static void throwInvalidQuantitySoldException(int productQuantity) {
+        throw new ValidationException("Sales transactions cannot be allowed , product quantity is only " + productQuantity +"\n");
+    }
+
 }
