@@ -35,4 +35,4 @@ Note:
 The console program should also include the following:
 • Correct product quantity persists in the inventory for each Sales Transaction
 • Sales transactions cannot be allowed for products that are sold out
-• Negative product quantities are not allowed when adding product quantit
+• Negative product quantities are not allowed when adding product quantity
