@@ -1,0 +1,38 @@
+A Java/C# console program that simulates a point-of-sales system for the following 4 products:
+
+Pen – each sold for 5 pesos with an initial stock of 10 pieces
+Pencil – each sold for 2 pesos with an initial stock of 20 pieces
+Notebook – each sold for 8 pesos with an initial stock of 10 pieces
+Eraser – each sold for 2 pesos with an initial stock of 30 pieces
+
+The console program should display the following menu of option on the screen:
+
+1 – Display Inventory
+• Choosing this option will display all products with following data:
+• Product Name
+• Product Price
+• Product Quantity
+
+2 – Add Product Quantity
+• Choosing this option number will allow the user to increase the inventory of an
+existing product by the specified number.
+• The number cannot be allow to be negative
+
+3 – Enter Sales Transaction
+• Choosing this option must allow the user to specify which product is being sold and
+how many of the product are being sold
+• The program must automatically calculate the total price of the sale and record it
+for display on demand by the user later
+
+4 – Display All Sales Transactions
+• Choosing this option must display a table onscreen displaying the following
+information:
+• Product Name
+• Quantity Sold
+• Total Sales Amount
+
+Note:
+The console program should also include the following:
+• Correct product quantity persists in the inventory for each Sales Transaction
+• Sales transactions cannot be allowed for products that are sold out
+• Negative product quantities are not allowed when adding product quantit
