@@ -18,6 +18,10 @@ public class ProductController {
         productView.printProductDetails(product.getName(), product.getPrice(), product.getQuantity());
     }
 
+    public void displayProductName(){
+        productView.printProductName(product.getName());
+    }
+
     public void addProductQuantity(int quantity){
         product.setQuantity(product.getQuantity()+quantity);
     }
@@ -32,7 +36,8 @@ public class ProductController {
         productView.printProductSales(product.getName(), product.getProductSales().getQuantitySold() , product.getProductSales().getTotalSalesAmount());
     }
 
-
-
-
+    public void setProductSales(ProductSales productSales) {
+        this.productSales = productSales;
+        product.setProductSales(productSales);
+    }
 }
