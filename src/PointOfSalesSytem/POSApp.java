@@ -38,8 +38,8 @@ public class POSApp {
             switch(menuOption){
                 case 1 -> {
                     appView.printDisplayInventoryHeader();
-                    for(int i = 0 ; i< products.size() ; i++){
-                        productController = new ProductController(products.get(i), productView);
+                    for (Product product : products) {
+                        productController = new ProductController(product, productView);
                         productController.displayProductDetails();
                     }
                 }
@@ -63,8 +63,8 @@ public class POSApp {
                 }
                 case 4 -> {
                     appView.printSalesTransactionHeader();
-                    for(int i = 0 ; i< products.size() ; i++){
-                        productController = new ProductController(products.get(i), productView);
+                    for (Product product : products) {
+                        productController = new ProductController(product, productView);
                         productController.displayProductSalesTrans();
                     }
                 }
